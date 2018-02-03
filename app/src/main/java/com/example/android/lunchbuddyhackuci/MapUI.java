@@ -20,16 +20,10 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         mMap = map;
-        LatLng sydney = new LatLng(-33.867, 151.206);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").
+                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-//        map.setMyLocationEnabled(true);
-//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
-//
-//        map.addMarker(new MarkerOptions()
-//                .title("Sydney")
-//                .snippet("The most populous city in Australia.")
-//                .position(sydney));
     }
 }
