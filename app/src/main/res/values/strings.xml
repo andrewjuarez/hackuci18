@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rendezvous</string>
+    <string name="facebook_app_id">137961347014298</string>
+    <string name="fb_login_protocol_scheme">fb137961347014298</string>
 </resources>
