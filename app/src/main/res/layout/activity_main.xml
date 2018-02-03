@@ -7,9 +7,12 @@
     android:background="@color/background"
     tools:context="com.example.android.lunchbuddyhackuci.MainActivity">
 
-    <TextView
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Facebook Login goes here!"
-        android:textColor="@color/text_body" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp" />
 </LinearLayout>
