@@ -1,11 +1,14 @@
 package com.example.android.lunchbuddyhackuci;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
+
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 public class MapUI extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
+    private Location mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,7 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap map) {
+        System.out.println("inside on mapready");
         mMap = map;
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").
