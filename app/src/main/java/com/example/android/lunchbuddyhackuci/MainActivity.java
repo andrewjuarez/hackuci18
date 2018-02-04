@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("DSLKFJSDLKFJKSDFS");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         callbackManager = CallbackManager.Factory.create();
@@ -74,10 +75,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         Button nextActivity = (Button) findViewById(R.id.mapButtonActivityLoader);
+        nextActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MapUI.class));
+            }
+        });
     }
 
     public void openMap(View view){
-        setContentView(R.layout.map_ui);
+//        startActivity(new Intent(MainActivity.this, MapUI.class));
+//        setContentView(R.layout.map_ui);
     }
 
 
