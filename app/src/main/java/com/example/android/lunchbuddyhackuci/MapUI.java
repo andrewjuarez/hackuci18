@@ -1,5 +1,6 @@
 package com.example.android.lunchbuddyhackuci;
 
+import com.facebook.Profile;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -43,6 +44,8 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mUserRef = database.child("Users");
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -168,10 +171,8 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
 
         User user = new User(lat, lng);
 
-        mUserRef.child("jenny").setValue(user);
-//
-//        mUserRef.child("lat").setValue(lat);
-//        mUserRef.child("long").setValue(lng);
+        mUserRef.child(Profile.getCurrentProfile().getId()).setValue(user);
+
 
         LatLng latLng = new LatLng(lat, lng);
         MarkerOptions markerOptions = new MarkerOptions();

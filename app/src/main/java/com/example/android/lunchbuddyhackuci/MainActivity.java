@@ -14,6 +14,8 @@ import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private Profile currentProfile;
     private String userFirstName;
     private String userLastName;
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mUserRef = database.child("Users");
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -33,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("DSLKFJSDLKFJKSDFS");
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_main);
         callbackManager = CallbackManager.Factory.create();
 
@@ -47,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile){
                                 userLastName = currentProfile.getLastName();
+                                User user = new User();
+                                user.setLastname(userLastName);
+                                user.setFirstName(currentProfile.getFirstName());
+                                mUserRef.child(currentProfile.getId()).setValue(user);
+
                                 Log.v("facebook - profile", currentProfile.getFirstName());
                                 Log.v("facebook - profile",currentProfile.getLastName());
                                 profileTrack.stopTracking();
