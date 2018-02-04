@@ -128,7 +128,7 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
         mMap = map;
 //        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        //Initialize Google Play Services correctly
+        //Initialize Google Play Services correctly for Android Nexus
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
