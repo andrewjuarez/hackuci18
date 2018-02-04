@@ -47,22 +47,16 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mUserRef = database.child("Users");
 
-//
+
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
+//
 //    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        profile = Profile.getCurrentProfile();
-        user = new User();
-//        user.setLastname(profile.getLastName());
-        user.setFirstName(profile.getFirstName());
-        mUserRef.child(profile.getId()).setValue(user);
-
         setContentView(R.layout.map_ui);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -123,6 +117,11 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
 
     @Override
     public void onMapReady(GoogleMap map) {
+        profile = Profile.getCurrentProfile();
+        user = new User();
+        user.setLastname(profile.getLastName());
+        user.setFirstName(profile.getFirstName());
+        mUserRef.child(profile.getId()).setValue(user);
 
         mMap = map;
 //        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
