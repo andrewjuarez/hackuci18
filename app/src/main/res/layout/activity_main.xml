@@ -16,13 +16,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp" />
-        android:text="Facebook Login goes here!"
-        android:textColor="@color/text_body" />
 
-    <Button
-        android:id="@+id/mapButtonActivityLoader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to map!"/>
 </LinearLayout>
 

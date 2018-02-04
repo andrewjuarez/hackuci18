@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             System.out.println(userFirstName + " " + userLastName);
                         }
 
-                        setContentView(R.layout.map_ui);
+                        startActivity(new Intent(MainActivity.this, MapUI.class));
                     }
 
                     @Override
@@ -74,19 +74,16 @@ public class MainActivity extends AppCompatActivity {
                         Log.v("facebook - onError", exception.getMessage());
                     }
                 });
-        Button nextActivity = (Button) findViewById(R.id.mapButtonActivityLoader);
-        nextActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MapUI.class));
-            }
-        });
+
+//        Button nextActivity = (Button) findViewById(R.id.mapButtonActivityLoader);
+//        nextActivity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this, MapUI.class));
+//            }
+//        });
     }
 
-    public void openMap(View view){
-//        startActivity(new Intent(MainActivity.this, MapUI.class));
-//        setContentView(R.layout.map_ui);
-    }
 
 
 }
