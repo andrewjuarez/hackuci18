@@ -40,35 +40,29 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
     private GoogleApiClient mGoogleApiClient;
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
+    private User user;
+    private Profile profile;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mUserRef = database.child("Users");
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-//        mUserRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String text = dataSnapshot.getValue(String.class);
-//                mConditionText
-//            }
 //
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        })
-//        User user = new User("jenny", "jennyjkim95@gmail.com");
-//        database.child("Users").setValue(user);
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        profile = Profile.getCurrentProfile();
+        user = new User();
+//        user.setLastname(profile.getLastName());
+        user.setFirstName(profile.getFirstName());
+        mUserRef.child(profile.getId()).setValue(user);
+
         setContentView(R.layout.map_ui);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -169,14 +163,16 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
         double lat = location.getLatitude();
         double lng = location.getLongitude();
 
-        User user = new User(lat, lng);
-
+        user.setLat(lat);
+        user.setLng(lng);
+//
         mUserRef.child(Profile.getCurrentProfile().getId()).setValue(user);
 
 
         LatLng latLng = new LatLng(lat, lng);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
+        markerOptions.title("My Location");
         markerOptions.title("My Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         mCurrLocationMarker = mMap.addMarker(markerOptions);

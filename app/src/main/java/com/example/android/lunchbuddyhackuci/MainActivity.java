@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile){
                                 userLastName = currentProfile.getLastName();
-                                User user = new User();
-                                user.setLastname(userLastName);
-                                user.setFirstName(currentProfile.getFirstName());
-                                mUserRef.child(currentProfile.getId()).setValue(user);
+//                                User user = new User();
+//                                user.setLastname(userLastName);
+//                                user.setFirstName(currentProfile.getFirstName());
+//                                mUserRef.child(currentProfile.getId()).setValue(user);
 
                                 Log.v("facebook - profile", currentProfile.getFirstName());
                                 Log.v("facebook - profile",currentProfile.getLastName());

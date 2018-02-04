@@ -7,7 +7,7 @@ public class User {
 
 
     private String firstName;
-    private String lastname;
+    private String lastName;
     public String uniqueID;
     private double lat;
     private double lng;
@@ -31,11 +31,11 @@ public class User {
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
 
