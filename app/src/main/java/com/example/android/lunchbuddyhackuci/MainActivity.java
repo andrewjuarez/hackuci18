@@ -2,6 +2,8 @@ package com.example.android.lunchbuddyhackuci;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         callbackManager = CallbackManager.Factory.create();
 
 
@@ -44,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
                         // App code
                     }
                 });
+=======
+        Button nextActivity = (Button) findViewById(R.id.mapButtonActivityLoader);
+    }
+
+    public void openMap(View view){
+        setContentView(R.layout.map_ui);
+>>>>>>> d0521bfb3ced0fd786aba494dd83005657a2563b
     }
 
 
