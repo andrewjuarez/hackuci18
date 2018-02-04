@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.*;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+
 public class MapUI extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
 
