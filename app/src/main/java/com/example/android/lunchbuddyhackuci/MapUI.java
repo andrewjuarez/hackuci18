@@ -121,7 +121,9 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
         user = new User();
         user.setLastname(profile.getLastName());
         user.setFirstName(profile.getFirstName());
+        user.setPicURI(profile.getProfilePictureUri(100,100));
         mUserRef.child(profile.getId()).setValue(user);
+
 
         mMap = map;
 //        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);

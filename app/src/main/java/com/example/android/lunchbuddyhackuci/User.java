@@ -13,6 +13,7 @@ public class User {
     private double lng;
     private String lunch;
     private String study;
+    private String picURI;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -22,6 +23,17 @@ public class User {
         this.lat = lat;
         this.lng = lng;
     }
+
+
+    public String getPicURI() {
+        return picURI;
+    }
+
+    public void setPicURI(android.net.Uri picURI) {
+        String url = picURI.toString();
+        this.picURI = url;
+    }
+
     public String getFirstName() {
         return firstName;
     }
