@@ -7,6 +7,12 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.firebase.database.ValueEventListener;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -34,6 +40,27 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
     private Location mLastLocation;
     private Marker mCurrLocationMarker;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
+    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mUserRef = database.child("Users");
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        mUserRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String text = dataSnapshot.getValue(String.class);
+//                mConditionText
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        })
+//        User user = new User("jenny", "jennyjkim95@gmail.com");
+//        database.child("Users").setValue(user);
+    }
 
 
     @Override
@@ -101,7 +128,7 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap map) {
 
         mMap = map;
-        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -135,10 +162,21 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
         }
 
         //Place current location marker
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+
+        double lat = location.getLatitude();
+        double lng = location.getLongitude();
+
+        User user = new User(lat, lng);
+
+        mUserRef.child("jenny").setValue(user);
+//
+//        mUserRef.child("lat").setValue(lat);
+//        mUserRef.child("long").setValue(lng);
+
+        LatLng latLng = new LatLng(lat, lng);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("Current Position");
+        markerOptions.title("My Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
