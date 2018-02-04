@@ -101,7 +101,7 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap map) {
 
         mMap = map;
-//        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -116,11 +116,6 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-//
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").
-//                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     protected synchronized void buildGoogleApiClient() {
