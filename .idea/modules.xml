@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://C:\Users\kevin\Desktop\HackUCI\hackuci18\LunchBuddyHackUCI.iml" filepath="C:\Users\kevin\Desktop\HackUCI\hackuci18\LunchBuddyHackUCI.iml" />
-=======
->>>>>>> d0521bfb3ced0fd786aba494dd83005657a2563b
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/hackuci18.iml" filepath="$PROJECT_DIR$/hackuci18.iml" />
     </modules>
