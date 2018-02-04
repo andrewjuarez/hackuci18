@@ -104,7 +104,7 @@ public class MapUI extends FragmentActivity implements OnMapReadyCallback,
 
 
             } else {
-                // No explanation needed, we can request the permission.
+                // No explanation needed, we can request the permission here.
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
